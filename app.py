@@ -23,9 +23,14 @@ st.title("🛡️ SQL Injection Demo")
 user_input = st.text_input("💬 Enter input to test for SQL injection")
 
 if user_input:
-    matches = detect_sqli(user_input)
+    simulated_query = f"SELECT * FROM users WHERE username='{user_input}' AND password='{user_input}';"
+    matches = detect_sqli(simulated_query)
     if matches:
         st.error("🚨 SQL Injection Detected!")
+        st.code(simulated_query, language='sql')
+        st.markdown("### ⚠️ Risky Patterns Found:")
+        st.markdown("#### Patterns and Descriptions:")
+        st.markdown("```sql\nSELECT * FROM users WHERE username='user_input' AND password='user_input';\n```")
         for pat, desc in matches:
             st.markdown(f"- **Pattern:** `{pat}`")
             if learn_mode:
