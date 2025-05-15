@@ -1,0 +1,11 @@
+CIA_Triad:
+  Confidentiality: "Only authorized users can access sensitive data."
+  Integrity: "Ensure data is accurate and unmodified."
+  Availability: "Data is accessible when needed."
+
+Controls:
+  Access Control: "Limit who can see or change data."
+  Inference Control: "Prevent guessing private info from public data."
+  Flow Control: "Stop secret data leaking through indirect paths."
+  Encryption: "Protect data using encoding."
+  Auditing: "Keep track of who accesses or changes data."
